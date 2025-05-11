@@ -1,0 +1,11 @@
+name,description,image_url,category,requirement
+"통일 씨앗","통일에 관한 첫 번째 활동을 완료했어요!","/images/stickers/seed.png","achievement","첫 번째 읽기 자료 또는 영상 시청 완료"
+"평화 나무","통일에 관한 5개의 활동을 완료했어요!","/images/stickers/tree.png","achievement","5개의 활동 완료 (읽기, 영상, 편지 중 조합)"
+"통일 꽃","통일에 관한 모든 읽기 활동을 완료했어요!","/images/stickers/flower.png","reading","모든 읽기 자료 완료"
+"평화 별","통일에 관한 모든 영상을 시청했어요!","/images/stickers/star.png","video","모든 영상 시청 완료"
+"우정의 다리","참전국에 첫 감사 편지를 작성했어요!","/images/stickers/bridge.png","letter","첫 감사 편지 작성"
+"세계 평화","3개 이상의 UN참전국에 편지를 썼어요!","/images/stickers/globe.png","letter","3개 이상의 UN참전국에 편지 작성"
+"통일 전문가","통일 퀴즈를 모두 맞혔어요!","/images/stickers/expert.png","quiz","퀴즈 10개 이상 정답 맞히기"
+"평화의 비둘기","평화와 통일에 대한 깊은 이해를 보여줬어요!","/images/stickers/dove.png","overall","읽기, 영상, 편지쓰기 각 분야에서 최소 3개 이상 활동 완료"
+"함께 걷는 길","모든 필수 활동을 완료했어요!","/images/stickers/road.png","overall","모든 필수 활동 완료 (읽기 5개, 영상 5개, 편지 3개)"
+"통일 한국","유니콘 마스터! 모든 활동을 완료하고 통일에 대한 깊은 이해를 보여줬어요!","/images/stickers/unified_korea.png","master","모든 활동 100% 완료"

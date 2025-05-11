@@ -1,0 +1,6 @@
+id,user_id,sticker_id,earned_at,created_at
+"user_sticker_1","sample_student1","sticker_id_1",NOW(),NOW()
+"user_sticker_2","sample_student1","sticker_id_5",NOW(),NOW()
+"user_sticker_3","sample_student2","sticker_id_1",NOW(),NOW()
+"user_sticker_4","sample_student2","sticker_id_5",NOW(),NOW()
+"user_sticker_5","sample_student3","sticker_id_1",NOW(),NOW()

@@ -1,0 +1,10 @@
+id,user_id,material_id,video_id,country_id,quiz_id,completed,score,attempts,last_accessed,created_at,updated_at
+"progress_1","sample_student1","material_id_1",null,null,null,true,100,1,NOW(),NOW(),NOW()
+"progress_2","sample_student1",null,"video_id_1",null,null,true,100,1,NOW(),NOW(),NOW()
+"progress_3","sample_student1",null,null,"country_id_1",null,true,null,null,NOW(),NOW(),NOW()
+"progress_4","sample_student2","material_id_2",null,null,null,true,80,2,NOW(),NOW(),NOW()
+"progress_5","sample_student2",null,"video_id_2",null,null,true,90,1,NOW(),NOW(),NOW()
+"progress_6","sample_student2",null,null,"country_id_2",null,true,null,null,NOW(),NOW(),NOW()
+"progress_7","sample_student3","material_id_3",null,null,null,true,100,1,NOW(),NOW(),NOW()
+"progress_8","sample_student3",null,"video_id_3",null,null,false,0,0,NOW(),NOW(),NOW()
+"progress_9","sample_student3",null,null,"country_id_3",null,true,null,null,NOW(),NOW(),NOW()

@@ -1,0 +1,10 @@
+id,role,name,email,password_hash,class_id,created_at,updated_at
+"teacher_id_1","teacher","김교사","teacher1@example.com","$2a$10$samplehashforsecurity1","class_id_1",NOW(),NOW()
+"teacher_id_2","teacher","이교사","teacher2@example.com","$2a$10$samplehashforsecurity2","class_id_2",NOW(),NOW()
+"teacher_id_3","teacher","박교사","teacher3@example.com","$2a$10$samplehashforsecurity3","class_id_3",NOW(),NOW()
+"sample_student1","student","학생1",null,null,"class_id_1",NOW(),NOW()
+"sample_student2","student","학생2",null,null,"class_id_2",NOW(),NOW()
+"sample_student3","student","학생3",null,null,"class_id_3",NOW(),NOW()
+"sample_student4","student","학생4",null,null,"class_id_1",NOW(),NOW()
+"sample_student5","student","학생5",null,null,"class_id_2",NOW(),NOW()
+"sample_student6","student","학생6",null,null,"class_id_3",NOW(),NOW()

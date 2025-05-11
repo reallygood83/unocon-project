@@ -1,0 +1,4 @@
+id,name,grade,teacher_id,access_code,created_at,updated_at
+"class_id_1","3학년 1반",3,"teacher_id_1","3A1CODE",NOW(),NOW()
+"class_id_2","4학년 2반",4,"teacher_id_2","4B2CODE",NOW(),NOW()
+"class_id_3","5학년 3반",5,"teacher_id_3","5C3CODE",NOW(),NOW()
