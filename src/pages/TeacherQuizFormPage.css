@@ -1,0 +1,136 @@
+.teacher-quiz-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.teacher-quiz-form h1 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.form-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--error-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group textarea,
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.option-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.option-input.correct {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.option-input input[type="text"] {
+  flex: 1;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background-color: var(--white);
+  color: #666;
+  border: 1px solid var(--light-gray);
+}
+
+.btn-cancel:hover {
+  background-color: var(--light-gray);
+}
+
+.btn-save {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+}
+
+.btn-save:hover {
+  background-color: #303f9f;
+}
+
+.btn-save:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .option-input {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .radio-label {
+    align-self: flex-start;
+  }
+}

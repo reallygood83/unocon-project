@@ -6,6 +6,9 @@ import HomePage from './pages/HomePage';
 import ReadingPage from './pages/ReadingPage';
 import VideoPage from './pages/VideoPage';
 import LetterPage from './pages/LetterPage';
+import TeacherPage from './pages/TeacherPage';
+import TeacherQuizPage from './pages/TeacherQuizPage';
+import TeacherQuizFormPage from './pages/TeacherQuizFormPage';
 import './App.css';
 
 function App() {
@@ -18,6 +21,10 @@ function App() {
           <Route path="/reading" element={<ReadingPage />} />
           <Route path="/video" element={<VideoPage />} />
           <Route path="/letter" element={<LetterPage />} />
+          <Route path="/teacher" element={<TeacherPage />} />
+          <Route path="/teacher/quizzes" element={<TeacherQuizPage />} />
+          <Route path="/teacher/quizzes/new" element={<TeacherQuizFormPage />} />
+          <Route path="/teacher/quizzes/edit/:id" element={<TeacherQuizFormPage />} />
         </Routes>
       </main>
       <Footer />

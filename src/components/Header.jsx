@@ -16,6 +16,7 @@ function Header() {
             <li><Link to="/reading" className="nav-link">읽어보며 통일 알아보기</Link></li>
             <li><Link to="/video" className="nav-link">영상으로 통일 알아보기</Link></li>
             <li><Link to="/letter" className="nav-link">UN참전국 감사편지 보내기</Link></li>
+            <li><Link to="/teacher" className="nav-link teacher-link">교사 관리</Link></li>
           </ul>
         </nav>
       </div>
