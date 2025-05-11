@@ -88,6 +88,13 @@
   border-color: var(--primary-color);
 }
 
+.card-actions .btn.highlight {
+  background-color: rgba(63, 81, 181, 0.1);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 500;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
   .dashboard-grid {

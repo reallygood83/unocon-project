@@ -9,6 +9,8 @@ import LetterPage from './pages/LetterPage';
 import TeacherPage from './pages/TeacherPage';
 import TeacherQuizPage from './pages/TeacherQuizPage';
 import TeacherQuizFormPage from './pages/TeacherQuizFormPage';
+import TeacherReadingSearchPage from './pages/TeacherReadingSearchPage';
+import TeacherVideoSearchPage from './pages/TeacherVideoSearchPage';
 import './App.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/teacher/quizzes" element={<TeacherQuizPage />} />
           <Route path="/teacher/quizzes/new" element={<TeacherQuizFormPage />} />
           <Route path="/teacher/quizzes/edit/:id" element={<TeacherQuizFormPage />} />
+          <Route path="/teacher/reading/search" element={<TeacherReadingSearchPage />} />
+          <Route path="/teacher/videos/search" element={<TeacherVideoSearchPage />} />
         </Routes>
       </main>
       <Footer />

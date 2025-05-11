@@ -67,6 +67,7 @@ function TeacherPage() {
             <div className="card-actions">
               <button className="btn" onClick={() => navigate('/teacher/reading')}>읽기 자료 목록</button>
               <button className="btn" onClick={() => navigate('/teacher/reading/new')}>새 읽기 자료 추가</button>
+              <button className="btn highlight" onClick={() => navigate('/teacher/reading/search')}>문헌자료 검색 및 퀴즈 생성</button>
             </div>
           </div>
           
@@ -75,6 +76,7 @@ function TeacherPage() {
             <div className="card-actions">
               <button className="btn" onClick={() => navigate('/teacher/videos')}>영상 자료 목록</button>
               <button className="btn" onClick={() => navigate('/teacher/videos/new')}>새 영상 자료 추가</button>
+              <button className="btn highlight" onClick={() => navigate('/teacher/videos/search')}>유튜브 영상 검색 및 퀴즈 생성</button>
             </div>
           </div>
           
