@@ -7,9 +7,10 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
  * Generate quiz questions based on content
  * @param {string} content - Text content to generate questions from
  * @param {number} numberOfQuestions - Number of questions to generate
+ * @param {number} gradeLevel - School grade level (3-6)
  * @returns {Promise} - Generated questions
  */
-export const generateQuizQuestions = async (content, numberOfQuestions = 3) => {
+export const generateQuizQuestions = async (content, numberOfQuestions = 3, gradeLevel = 3) => {
   try {
     // This is a placeholder for the actual implementation
     // API call would happen here
