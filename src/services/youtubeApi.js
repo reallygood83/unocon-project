@@ -1,8 +1,5 @@
 // Integration with YouTube Data API
 
-// API key from environment variables
-const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
-
 // 안전한 채널 ID 목록 (검증된 통일 교육 콘텐츠 제공자)
 const SAFE_CHANNEL_IDS = [
   'UC9ftsObOaXJDEO76yXX9EIw', // 통일부 통일교육원
@@ -12,7 +9,7 @@ const SAFE_CHANNEL_IDS = [
 ];
 
 /**
- * Search for unification videos using YouTube API
+ * Search for unification videos using YouTube API via serverless function
  * @param {string} query - Search query
  * @param {number} maxResults - Maximum number of results to return
  * @returns {Promise} - API response
@@ -21,18 +18,15 @@ export const searchUnificationVideos = async (query, maxResults = 8) => {
   try {
     // 통일 교육 관련 키워드와 함께 검색
     const searchQuery = `통일 교육 ${query}`;
-    
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchQuery)}&maxResults=${maxResults}&type=video&key=${YOUTUBE_API_KEY}&relevanceLanguage=ko&safeSearch=strict`,
-      {
-        method: 'GET'
-      }
-    );
-    
+
+    // Use Vercel serverless function to avoid CORS and API key issues
+    const apiUrl = `/api/youtube-search?query=${encodeURIComponent(searchQuery)}&maxResults=${maxResults}`;
+    const response = await fetch(apiUrl);
+
     if (!response.ok) {
       throw new Error(`YouTube API 요청 실패: ${response.status} ${response.statusText}`);
     }
-    
+
     const data = await response.json();
     
     if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
@@ -108,43 +102,26 @@ export const searchUnificationVideos = async (query, maxResults = 8) => {
 };
 
 /**
- * Get video details from YouTube API
+ * Get video details from YouTube API via serverless function
  * @param {string} videoId - YouTube video ID
  * @returns {Promise} - Video details
  */
 export const getVideoDetails = async (videoId) => {
   try {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${YOUTUBE_API_KEY}`,
-      {
-        method: 'GET'
-      }
-    );
-    
+    // Use Vercel serverless function to avoid CORS and API key issues
+    const apiUrl = `/api/youtube-details?videoId=${videoId}`;
+    const response = await fetch(apiUrl);
+
     if (!response.ok) {
       throw new Error(`YouTube API 요청 실패: ${response.status} ${response.statusText}`);
     }
-    
-    const data = await response.json();
-    
-    if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
-      throw new Error('영상 정보를 찾을 수 없습니다');
-    }
-    
-    const videoInfo = data.items[0];
-    
+
+    const videoInfo = await response.json();
+
+    // The serverless function already returns the formatted video data
     return {
       success: true,
-      data: {
-        id: videoInfo.id,
-        title: videoInfo.snippet.title,
-        description: videoInfo.snippet.description,
-        channelTitle: videoInfo.snippet.channelTitle,
-        publishedAt: videoInfo.snippet.publishedAt,
-        viewCount: videoInfo.statistics.viewCount,
-        duration: videoInfo.contentDetails.duration,
-        thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-      }
+      data: videoInfo
     };
   } catch (error) {
     console.error('Error getting video details:', error);

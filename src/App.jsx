@@ -11,6 +11,7 @@ import TeacherQuizPage from './pages/TeacherQuizPage';
 import TeacherQuizFormPage from './pages/TeacherQuizFormPage';
 import TeacherReadingSearchPage from './pages/TeacherReadingSearchPage';
 import TeacherVideoSearchPage from './pages/TeacherVideoSearchPage';
+import TeacherVideoFormPage from './pages/TeacherVideoFormPage';
 import './App.css';
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path="/teacher/quizzes/edit/:id" element={<TeacherQuizFormPage />} />
           <Route path="/teacher/reading/search" element={<TeacherReadingSearchPage />} />
           <Route path="/teacher/videos/search" element={<TeacherVideoSearchPage />} />
+          <Route path="/teacher/videos/new" element={<TeacherVideoFormPage />} />
+          <Route path="/teacher/videos/edit/:id" element={<TeacherVideoFormPage />} />
         </Routes>
       </main>
       <Footer />

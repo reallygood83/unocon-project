@@ -2,6 +2,24 @@
 
 이 문서는 Unicon(초등 통일 교육 플랫폼) 개발 및 유지보수를 위한 참고 사항을 제공합니다.
 
+## 업데이트 내역
+
+### 2024-05-11 - API 호출 개선
+
+1. **Vercel Serverless Functions 추가**
+   - CORS 문제 해결을 위한 서버리스 함수 구현
+   - 총 3개 함수 구현: `naver-search.js`, `youtube-search.js`, `youtube-details.js`
+   - 프론트엔드에서 백엔드 API로 요청을 중계하여 CORS 문제 해결
+
+2. **API 호출 방식 개선**
+   - Naver Search API 호출 시 서버리스 함수 사용으로 변경
+   - YouTube API 호출 시 서버리스 함수 사용으로 변경
+   - API 키 보안 강화 (클라이언트에서 환경 변수 직접 사용하지 않음)
+
+3. **경로 추가**
+   - `/teacher/videos/new` 및 `/teacher/videos/edit/:id` 경로 추가
+   - `TeacherVideoFormPage` 컴포넌트 구현
+
 ## 핵심 기능
 
 ### 콘텐츠 검색 및 생성
@@ -23,19 +41,26 @@
 ## API 연동
 
 1. **Naver Search API**
-   - 환경 변수: `VITE_NAVER_CLIENT_ID`, `VITE_NAVER_CLIENT_SECRET`
-   - 기본 엔드포인트: `https://openapi.naver.com/v1/search/webkr`
+   - 환경 변수: `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` (Vercel 서버리스 함수에서 사용)
+   - 서버리스 함수: `/api/naver-search.js`
+   - 프론트엔드 경로: `/api/naver-search?query=검색어`
    - 관련 파일: `/src/services/naverApi.js`
 
 2. **YouTube Data API**
-   - 환경 변수: `VITE_YOUTUBE_API_KEY`
-   - 기본 엔드포인트: `https://www.googleapis.com/youtube/v3/search`
+   - 환경 변수: `YOUTUBE_API_KEY` (Vercel 서버리스 함수에서 사용)
+   - 서버리스 함수:
+     - `/api/youtube-search.js` (영상 검색)
+     - `/api/youtube-details.js` (영상 상세 정보)
+   - 프론트엔드 경로:
+     - `/api/youtube-search?query=검색어&maxResults=8`
+     - `/api/youtube-details?videoId=비디오ID`
    - 관련 파일: `/src/services/youtubeApi.js`
 
 3. **Gemini API (Google AI)**
-   - 환경 변수: `VITE_GEMINI_API_KEY`
+   - 환경 변수: `VITE_GEMINI_API_KEY` (아직 프론트엔드에서 직접 사용)
    - 기본 엔드포인트: `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash:generateContent`
    - 관련 파일: `/src/services/geminiApi.js`
+   - 향후 계획: Gemini API 호출도 서버리스 함수로 이전 필요
 
 4. **Supabase**
    - 환경 변수: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
@@ -45,6 +70,12 @@
 
 - 배포 플랫폼: Vercel
 - 환경 변수: Vercel 대시보드의 "Settings" > "Environment Variables"에서 설정
+- 서버리스 함수: `/api` 디렉토리에 위치 (Vercel이 자동으로 인식)
+
+### Vercel 환경 변수 설정 필요
+- `NAVER_CLIENT_ID`: 네이버 개발자 센터에서 발급받은 클라이언트 ID
+- `NAVER_CLIENT_SECRET`: 네이버 개발자 센터에서 발급받은 클라이언트 시크릿
+- `YOUTUBE_API_KEY`: Google Developer Console에서 발급받은 YouTube Data API 키
 
 ## 교사 관리 페이지
 

@@ -1,28 +1,15 @@
 // Integration with Naver Search API
 
-// API keys from environment variables
-const NAVER_CLIENT_ID = import.meta.env.VITE_NAVER_CLIENT_ID;
-const NAVER_CLIENT_SECRET = import.meta.env.VITE_NAVER_CLIENT_SECRET;
-
 /**
- * Search for unification education content using Naver API
+ * Search for unification education content using Naver API via serverless function
  * @param {string} query - Search query
  * @returns {Promise} - API response
  */
 export const searchUnificationContent = async (query) => {
   try {
-    // CORS 우회를 위한 서버리스 프록시가 이상적이지만,
-    // 프론트엔드에서 직접 호출하는 방식으로 구현
-    // (실제 프로덕션 환경에서는 서버리스 함수를 통해 호출하는 것이 좋음)
-    const response = await fetch(
-      `https://openapi.naver.com/v1/search/webkr?query=${encodeURIComponent(query)}&display=10&start=1&sort=sim`,
-      {
-        headers: {
-          'X-Naver-Client-Id': NAVER_CLIENT_ID,
-          'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-        }
-      }
-    );
+    // Use Vercel serverless function to avoid CORS issues
+    const apiUrl = `/api/naver-search?query=${encodeURIComponent(query)}`;
+    const response = await fetch(apiUrl);
 
     if (!response.ok) {
       throw new Error(`Naver API 요청 실패: ${response.status} ${response.statusText}`);
